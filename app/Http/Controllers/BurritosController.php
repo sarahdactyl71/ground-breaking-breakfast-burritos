@@ -4,14 +4,13 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
+use App\Burrito;
+
 class BurritosController extends Controller
 {
     public function index()
     {
-      $burritos = Burrito::all();
-
-      return View::make('burritos.index')
-          ->with('burritos' , $burritos);
+      return view('burritos.index', ['burritos'=>Burrito::all()]);
     }
 
     public function create()
@@ -41,6 +40,6 @@ class BurritosController extends Controller
 
     public function destroy($id)
     {
-      
+
     }
 }
