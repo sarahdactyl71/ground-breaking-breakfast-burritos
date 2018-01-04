@@ -19,29 +19,39 @@
     </ul>
 </nav>
 
-<h1>Create a Burrito</h1>
+<h1>Create a Breakfast Burrito</h1>
 
 <!-- if there are creation errors, they will show here -->
-{{ HTML::ul($errors->all()) }}
+{{ Html::ul($errors->all()) }}
 
 {{ Form::open(array('url' => 'burritos')) }}
 
     <div class="form-group">
         {{ Form::label('location', 'Location') }}
-        {{ Form::text('location', Input::old('location'), array('class' => 'form-control')) }}
+        {{ Form::text('location') }}
     </div>
 
     <div class="form-group">
-        {{ Form::label('address', 'Email') }}
-        {{ Form::text('address', Input::old('address'), array('class' => 'form-control')) }}
+        {{ Form::label('address', 'Address') }}
+        {{ Form::text('address') }}
     </div>
 
     <div class="form-group">
-        {{ Form::label('burrito_level', 'Nerd Level') }}
-        {{ Form::select('burrito_level', Input::old('address'), array('class' => 'form-control')) }}
+        {{ Form::label('originality', 'Originality') }}
+        {{ Form::number('originality', 1) }}
     </div>
 
-    {{ Form::submit('Create the Nerd!', array('class' => 'btn btn-primary')) }}
+    <div class="form-group">
+        {{ Form::label('price_point', 'Price Point') }}
+        {{ Form::text('price_point') }}
+    </div>
+
+    <div class="form-group">
+        {{ Form::label('description', 'Description') }}
+        {{ Form::text('description') }}
+    </div>
+
+    {{ Form::submit('Submit', array('class' => 'btn btn-primary')) }}
 
 {{ Form::close() }}
 
