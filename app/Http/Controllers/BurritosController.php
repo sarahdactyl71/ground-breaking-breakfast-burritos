@@ -15,7 +15,7 @@ class BurritosController extends Controller
 
     public function create()
     {
-
+      return view('burritos.create');
     }
 
     public function store()

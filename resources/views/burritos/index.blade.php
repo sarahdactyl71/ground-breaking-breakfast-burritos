@@ -13,7 +13,7 @@
     </div>
     <ul class="nav navbar-nav">
         <li><a href="{{ URL::to('burritos') }}">View All Burritos</a></li>
-        <li><a href="{{ URL::to('burritos/create') }}">Create a Burritos</a>
+        <li><a href="{{ URL::to('burritos/create') }}">Create a Burrito</a>
     </ul>
 </nav>
 
@@ -30,7 +30,7 @@
             <td>ID</td>
             <td>Location</td>
             <td>Address</td>
-            <td>Originality</td>
+            <td>Originality out of 5</td>
             <td>Price Point</td>
             <td>Description</td>
         </tr>
