@@ -33,34 +33,38 @@ class BurritosController extends Controller
         return redirect('burritos');
     }
 
-    // public function store(Request $request)
-    // {
-    //     $story = new Story([
-    //         'name' => $request->input('name'),
-    //         'description' => $request->input('description'),
-    //     ]);
-    //
-    //     $story->save();
-    //     return redirect('stories');
-    // }
-
     public function show($id)
     {
+        $burrito = Burrito::find($id);
 
+        return view('burrito.show', compact('burrito', 'id'));
     }
 
     public function edit($id)
     {
+        $burrito = Burrito::find($id);
 
+        return view('burrito.edit', compact('burrito','id'));
     }
 
-    public function update($id)
+    public function update(Request $request, $id)
     {
-
+        $burrito = Burrito::find($id);
+        $burrito->location = $request->get('location');
+        $burrito->address = $request->get('address');
+        $burrito->originality = $request->get('originality');
+        $burrito->price_point = $request->get('price_point');
+        $burrito->description = $request->get('description');
+        $burrito->image_path = $request->get('image_path');
+        $burrito->save();
+        return redirect('burritos');
     }
 
     public function destroy($id)
     {
+        $burrito = Burrito::find($id);
+        $burrito->delete();
 
+        return redirect('burritos');
     }
 }

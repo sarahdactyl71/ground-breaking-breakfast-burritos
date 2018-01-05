@@ -37,28 +37,24 @@
         </tr>
     </thead>
     <tbody>
-    @foreach($burritos as $key => $value)
+    @foreach($burritos as $burrito)
         <tr>
-            <td>{{ $value->id }}</td>
-            <td>{{ $value->location }}</td>
-            <td>{{ $value->address }}</td>
-            <td>{{ $value->originality }}</td>
-            <td>{{ $value->price_point }}</td>
-            <td>{{ $value->description }}</td>
-            <td>{{ $value->image_path }}</td>
-
-            <!-- we will also add show, edit, and delete buttons -->
+            <td>{{ $burrito['id'] }}</td>
+            <td>{{ $burrito['location'] }}</td>
+            <td>{{ $burrito['address'] }}</td>
+            <td>{{ $burrito['originality'] }}</td>
+            <td>{{ $burrito['price_point'] }}</td>
+            <td>{{ $burrito['description'] }}</td>
+            <td>{{ $burrito["image_path"] }}</td>
             <td>
-
-                <!-- delete the burrito (uses the destroy method DESTROY /burritos/{id} -->
-                <!-- we will add this later since its a little more complicated than the other two buttons -->
-
-                <!-- show the burrito (uses the show method found at GET /burritos/{id} -->
-                <a class="btn btn-small btn-success" href="{{ URL::to('burritos/' . $value->id) }}">Show this Burrito</a>
-
-                <!-- edit this burrito (uses the edit method found at GET /burritos/{id}/edit -->
-                <a class="btn btn-small btn-info" href="{{ URL::to('burritos/' . $value->id . '/edit') }}">Edit this Burrito</a>
-
+                <a href="{{action('BurritosController@edit', $burrito['id'])}}" class="btn btn-warning">Edit</a>
+            </td>
+            <td>
+                <form action="{{action('BurritosController@destroy', $burrito['id'])}}" method="post">
+                  {{csrf_field()}}
+                  <input name="_method" type="hidden" value="DELETE">
+                  <button class="btn btn-danger" type="submit">Delete</button>
+                </form>
             </td>
         </tr>
     @endforeach
