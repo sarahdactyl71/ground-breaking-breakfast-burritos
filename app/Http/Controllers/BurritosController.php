@@ -18,28 +18,53 @@ class BurritosController extends Controller
       return view('burritos.create');
     }
 
-    public function store()
+    public function store(Request $request)
     {
+        $burrito = new Burrito([
+            'location' => $request->input('location'),
+            'address' => $request->input('address'),
+            'originality' => $request->input('originality'),
+            'price_point' => $request->input('price_point'),
+            'description' => $request->input('description'),
+            'image_path' => $request->input('image_path'),
+        ]);
 
+        $burrito->save();
+        return redirect('burritos');
     }
 
     public function show($id)
     {
+        $burrito = Burrito::find($id);
 
+        return view('burritos.show', compact('burrito', 'id'));
     }
 
     public function edit($id)
     {
+        $burrito = Burrito::find($id);
 
+        return view('burritos.edit', compact('burrito','id'));
     }
 
-    public function update($id)
+    public function update(Request $request, $id)
     {
-
+        $burrito = Burrito::find($id);
+        $burrito->location = $request->get('location');
+        $burrito->address = $request->get('address');
+        $burrito->originality = $request->get('originality');
+        $burrito->price_point = $request->get('price_point');
+        $burrito->description = $request->get('description');
+        $burrito->image_path = $request->get('image_path');
+        $burrito->save();
+        return redirect('burritos');
     }
 
     public function destroy($id)
     {
+        $burrito = Burrito::find($id);
+        $burrito->delete();
 
+        return redirect('burritos');
     }
 }
