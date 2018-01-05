@@ -33,6 +33,7 @@
             <td>Originality out of 5</td>
             <td>Price Point</td>
             <td>Description</td>
+            <td>Image</td>
         </tr>
     </thead>
     <tbody>
@@ -44,6 +45,7 @@
             <td>{{ $value->originality }}</td>
             <td>{{ $value->price_point }}</td>
             <td>{{ $value->description }}</td>
+            <td>{{ $value->image_path }}</td>
 
             <!-- we will also add show, edit, and delete buttons -->
             <td>

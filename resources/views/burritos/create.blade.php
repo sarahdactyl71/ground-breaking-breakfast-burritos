@@ -51,6 +51,11 @@
         {{ Form::text('description') }}
     </div>
 
+    <div class="form-group">
+        {{ Form::label('image_path', 'Image') }}
+        {{ Form::text('image_path') }}
+    </div>
+
     {{ Form::submit('Submit', array('class' => 'btn btn-primary')) }}
 
 {{ Form::close() }}

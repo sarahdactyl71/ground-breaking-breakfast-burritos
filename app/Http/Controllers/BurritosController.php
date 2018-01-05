@@ -26,6 +26,7 @@ class BurritosController extends Controller
             'originality' => $request->input('originality'),
             'price_point' => $request->input('price_point'),
             'description' => $request->input('description'),
+            'image_path' => $request->input('image_path'),
         ]);
 
         $burrito->save();
