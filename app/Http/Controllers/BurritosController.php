@@ -18,10 +18,30 @@ class BurritosController extends Controller
       return view('burritos.create');
     }
 
-    public function store()
+    public function store(Request $request)
     {
+        $burrito = new Burrito([
+            'location' => $request->input('location'),
+            'address' => $request->input('address'),
+            'originality' => $request->input('originality'),
+            'price_point' => $request->input('price_point'),
+            'description' => $request->input('description'),
+        ]);
 
+        $burrito->save();
+        return redirect('burritos');
     }
+
+    // public function store(Request $request)
+    // {
+    //     $story = new Story([
+    //         'name' => $request->input('name'),
+    //         'description' => $request->input('description'),
+    //     ]);
+    //
+    //     $story->save();
+    //     return redirect('stories');
+    // }
 
     public function show($id)
     {
