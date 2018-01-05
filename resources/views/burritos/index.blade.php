@@ -1,6 +1,5 @@
 @extends('master')
 @section('content')
-
 <h1>All the Burritos</h1>
 
 <!-- will be used to show any messages -->
@@ -47,3 +46,4 @@
     @endforeach
     </tbody>
 </table>
+@endsection
