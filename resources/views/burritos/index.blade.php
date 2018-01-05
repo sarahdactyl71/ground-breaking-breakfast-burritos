@@ -47,13 +47,16 @@
             <td>{{ $burrito['description'] }}</td>
             <td>{{ $burrito["image_path"] }}</td>
             <td>
-                <a href="{{action('BurritosController@edit', $burrito['id'])}}" class="btn btn-warning">Edit</a>
+                <a href="{{action('BurritosController@show', $burrito['id'])}}" class="btn btn-primary">See Burrito</a>
+            </td>
+            <td>
+                <a href="{{action('BurritosController@edit', $burrito['id'])}}" class="btn btn-warning">Edit Burrito</a>
             </td>
             <td>
                 <form action="{{action('BurritosController@destroy', $burrito['id'])}}" method="post">
                   {{csrf_field()}}
                   <input name="_method" type="hidden" value="DELETE">
-                  <button class="btn btn-danger" type="submit">Delete</button>
+                  <button class="btn btn-danger" type="submit">Delete Burrito</button>
                 </form>
             </td>
         </tr>

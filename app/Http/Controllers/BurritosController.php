@@ -37,14 +37,14 @@ class BurritosController extends Controller
     {
         $burrito = Burrito::find($id);
 
-        return view('burrito.show', compact('burrito', 'id'));
+        return view('burritos.show', compact('burrito', 'id'));
     }
 
     public function edit($id)
     {
         $burrito = Burrito::find($id);
 
-        return view('burrito.edit', compact('burrito','id'));
+        return view('burritos.edit', compact('burrito','id'));
     }
 
     public function update(Request $request, $id)
